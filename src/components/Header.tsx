@@ -1,11 +1,18 @@
 import { Phone, Clock, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+const navLinks = [
+  { label: "Services", path: "/services" },
+  { label: "About Us", path: "/about" },
+  { label: "Pricing", path: "/pricing" },
+  { label: "Areas We Serve", path: "/areas" },
+  { label: "Contact", path: "/contact" },
+];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const navLinks = ["Services", "About Us", "Pricing", "Areas We Serve", "Contact"];
 
   return (
     <header className="sticky top-0 z-50 w-full">
@@ -29,7 +36,7 @@ const Header = () => {
       {/* Main navigation */}
       <nav className="bg-background border-b border-border shadow-sm">
         <div className="container flex items-center justify-between py-3">
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <div className="bg-primary rounded-lg p-2">
               <span className="text-primary-foreground font-heading text-xl font-bold">APS</span>
             </div>
@@ -37,18 +44,18 @@ const Header = () => {
               <span className="font-heading text-lg font-bold text-primary block">Advance Plumbing</span>
               <span className="font-heading text-xs text-muted-foreground tracking-widest">SOLUTIONS</span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
+            {navLinks.map(({ label, path }) => (
+              <Link
+                key={label}
+                to={path}
                 className="text-sm font-semibold text-foreground hover:text-accent transition-colors uppercase tracking-wide"
               >
-                {link}
-              </a>
+                {label}
+              </Link>
             ))}
           </div>
 
@@ -59,11 +66,11 @@ const Header = () => {
                 Call Now
               </Button>
             </a>
-            <a href="#quote">
+            <Link to="/contact">
               <Button variant="cta" size="lg">
                 Book Online
               </Button>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -82,22 +89,22 @@ const Header = () => {
         {/* Mobile nav */}
         {mobileOpen && (
           <div className="lg:hidden border-t border-border bg-background px-4 pb-4">
-            {navLinks.map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
+            {navLinks.map(({ label, path }) => (
+              <Link
+                key={label}
+                to={path}
                 className="block py-3 text-sm font-semibold text-foreground border-b border-border uppercase tracking-wide"
                 onClick={() => setMobileOpen(false)}
               >
-                {link}
-              </a>
+                {label}
+              </Link>
             ))}
             <div className="mt-4">
-              <a href="#quote">
+              <Link to="/contact">
                 <Button variant="cta" size="lg" className="w-full">
                   Book Online
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         )}
