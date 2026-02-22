@@ -4,7 +4,7 @@ import heroImage from "@/assets/hero-plumber.jpg";
 import { useState } from "react";
 
 const guarantees = [
-  "Fixed Pricing – No Surprises",
+  "Fixed Pricing & No Surprises",
   "On-Time or It's Free",
   "No Call-Out Fee",
   "Licensed & Insured Plumbers",
