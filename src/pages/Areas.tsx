@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import heroAreas from "@/assets/hero-areas.jpg";
 
 const areas = [
   { region: "South Florida", cities: ["Miami", "Fort Lauderdale", "West Palm Beach", "Boca Raton", "Hollywood", "Pompano Beach"] },
@@ -16,8 +17,9 @@ const Areas = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <section className="bg-primary py-16">
-          <div className="container text-center">
+        <section className="relative bg-primary py-16 overflow-hidden">
+          <div className="absolute inset-0 opacity-15" style={{ backgroundImage: `url(${heroAreas})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="container text-center relative z-10">
             <h1 className="text-4xl lg:text-5xl font-bold font-heading text-primary-foreground mb-4">
               Areas We Serve
             </h1>

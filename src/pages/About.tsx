@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Users, Award, Clock, Shield, Heart, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import heroAbout from "@/assets/hero-about.jpg";
 
 const stats = [
   { value: "15+", label: "Years Experience" },
@@ -23,8 +24,9 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <section className="bg-primary py-16">
-          <div className="container text-center">
+        <section className="relative bg-primary py-16 overflow-hidden">
+          <div className="absolute inset-0 opacity-15" style={{ backgroundImage: `url(${heroAbout})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="container text-center relative z-10">
             <h1 className="text-4xl lg:text-5xl font-bold font-heading text-primary-foreground mb-4">About Us</h1>
             <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg">
               Family-owned and operated, serving Florida communities for over 15 years.
