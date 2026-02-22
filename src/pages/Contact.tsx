@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import heroContact from "@/assets/hero-contact.jpg";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", service: "", message: "" });
@@ -17,8 +18,9 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <section className="bg-primary py-16">
-          <div className="container text-center">
+        <section className="relative bg-primary py-16 overflow-hidden">
+          <div className="absolute inset-0 opacity-15" style={{ backgroundImage: `url(${heroContact})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="container text-center relative z-10">
             <h1 className="text-4xl lg:text-5xl font-bold font-heading text-primary-foreground mb-4">Contact Us</h1>
             <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg">
               Get in touch for a free quote or emergency service. We respond within 30 minutes.
