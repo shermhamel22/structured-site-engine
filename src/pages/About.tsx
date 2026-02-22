@@ -25,7 +25,7 @@ const About = () => {
       <Header />
       <main>
         <section className="relative bg-primary py-16 overflow-hidden">
-          <div className="absolute inset-0 opacity-15" style={{ backgroundImage: `url(${heroAbout})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+          <img src={heroAbout} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15" loading="eager" fetchPriority="high" decoding="async" />
           <div className="container text-center relative z-10">
             <h1 className="text-4xl lg:text-5xl font-bold font-heading text-primary-foreground mb-4">About Us</h1>
             <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg">
